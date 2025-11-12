@@ -17,39 +17,22 @@ class TicTacToe {
       }
    }
 
-   public static int checkColumn() {
+   public static int checkPos(String axis) {
       while (true) {
-         System.out.println("Veuillez entre la colonne de votre symbole :");
+         System.out.println("Veuillez entre la " + axis + " de votre symbole :");
          try {
-            int column = scan.nextInt();
-            if (column <= 2 && column >= 0) {
-               return column;
+            int pos = scan.nextInt();
+            if (pos <= 2 && pos >= 0) {
+               return pos;
             } else {
-               System.out.println("Vous avez entrer un numero de colonne invalide");
+               System.out.println("Vous avez entrer un numero de " + axis + " invalide");
                scan.nextLine();
             }
          } catch (Exception NaN) {
             System.out.println("Une erreur est survenue, veuillez reessayer");
             scan.nextLine();
          }
-      }
-   }
 
-   public static int checkLine() {
-      while (true) {
-         System.out.println("Veuillez entre la ligne de votre symbole :");
-         try {
-            int line = scan.nextInt();
-            if (line <= 2 && line >= 0) {
-               return line;
-            } else {
-               System.out.println("Vous avez entrer un numero de ligne invalide");
-               scan.nextLine();
-            }
-         } catch (Exception NaN) {
-            System.out.println("Une erreur est survenue, veuillez reessayer");
-            scan.nextLine();
-         }
       }
    }
 
@@ -100,10 +83,10 @@ class TicTacToe {
 
    public static void play() {
 
-      int column = checkColumn();
-      int line = checkLine();
+      int column = checkPos("colonne");
+      int line = checkPos("ligne");
       if (board[line][column] != '.') {
-         System.out.println("Emplacement deja utilise, veillez reessayer");
+         System.out.println("Emplacement déjà utilisé, veillez réessayer");
       } else {
          board[line][column] = symbol;
          symbol = symbol == 'x' ? 'o' : 'x';
