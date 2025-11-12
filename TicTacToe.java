@@ -41,7 +41,6 @@ class TicTacToe {
             System.out.println("Une erreur est survenue, veuillez reessayer");
             scan.nextLine();
          }
-
       }
    }
 
@@ -105,8 +104,8 @@ class TicTacToe {
    /**
     * main loop of program
     */
-   public static void play() {
-
+   public static void main() {
+      display();
       int column = checkPos("colonne");
       int line = checkPos("ligne");
       if (board[line][column] != '.') {
@@ -114,23 +113,14 @@ class TicTacToe {
       } else {
          board[line][column] = symbol;
          symbol = symbol == 'x' ? 'o' : 'x';
-         display();
       }
       if (checkWin(board)) {
       } else if (checkBoardFill(board)) {
          System.out.println("Tous les emplacements sont utilisés, la partie est une égalité");
       } else {
-         play();
+         main();
       }
 
-   }
-
-   /**
-    * initializes program
-    */
-   public static void main(String[] params) {
-      display();
-      play();
       /*
        * System.out.println("Quel est votre age ?");
        * 
