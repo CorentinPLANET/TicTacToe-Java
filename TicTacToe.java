@@ -10,6 +10,9 @@ class TicTacToe {
 
    public static char symbol = 'x';
 
+   /**
+    * Displays game board
+    */
    public static void display() {
       // forEach loop: eachLine = ligne du tableau
       for (char[] eachLine : board) {
@@ -17,6 +20,12 @@ class TicTacToe {
       }
    }
 
+   /**
+    * Checks if the value entered by the player is valid
+    * 
+    * @param axis axis upon which the value is to be used
+    * @return the position number
+    */
    public static int checkPos(String axis) {
       while (true) {
          System.out.println("Veuillez entre la " + axis + " de votre symbole :");
@@ -36,6 +45,12 @@ class TicTacToe {
       }
    }
 
+   /**
+    * Checks if any of the differing win conditions are valid
+    * 
+    * @param board game board
+    * @return true if a player has won, otherwise false
+    */
    public static boolean checkWin(char[][] board) {
       for (int i = 0; i < board.length; i++) {
          if (board[i][0] == 'x' && board[i][1] == 'x' && board[i][2] == 'x') {
@@ -70,6 +85,12 @@ class TicTacToe {
       return false;
    }
 
+   /**
+    * checks if all spots of the board are filled
+    * 
+    * @param board game board
+    * @return true if the board is filled othewise false
+    */
    public static boolean checkBoardFill(char[][] board) {
       for (int i = 0; i < board.length; i++) {
          for (int j = 0; j < board.length; j++) {
@@ -81,6 +102,9 @@ class TicTacToe {
       return true;
    }
 
+   /**
+    * main loop of program
+    */
    public static void play() {
 
       int column = checkPos("colonne");
@@ -101,6 +125,9 @@ class TicTacToe {
 
    }
 
+   /**
+    * initializes program
+    */
    public static void main(String[] params) {
       display();
       play();
